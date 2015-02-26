@@ -44,7 +44,7 @@ nnoremap dd "_dd
 set list
 
 " タブとか改行を示す文字列 eol(改行)は背景色違いのスペースにする。
-set listchars=tab:>-,extends:<,trail:-,eol:\  
+set listchars=tab:>-,extends:<,trail:-,eol:\
 
 "タブを空白で入力する
 set expandtab
@@ -81,19 +81,22 @@ set fileformat=unix
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 
-"全角スペースを視覚化
-if has('syntax')
-  syntax enable
-  function! ActivateInvisibleIndicator()
-    highlight ZenkakuSpace cterm=underline ctermfg=darkgrey gui=underline guifg=#FF0000
-    match ZenkakuSpace /　/
-  endfunction
-  augroup InvisibleIndicator
-    autocmd!
-    autocmd BufEnter * call ActivateInvisibleIndicator()
-  augroup END
-endif
+""""""""""""""""""""""""""""""
+" 全角スペースの表示
+""""""""""""""""""""""""""""""
+function! ZenkakuSpace()
+    highlight ZenkakuSpace cterm=underline ctermfg=lightblue guibg=darkgray
+endfunction
 
+if has('syntax')
+    augroup ZenkakuSpace
+        autocmd!
+        autocmd ColorScheme * call ZenkakuSpace()
+        autocmd VimEnter,WinEnter,BufRead * let w:m1=matchadd('ZenkakuSpace', '　')
+    augroup END
+    call ZenkakuSpace()
+endif
+""""""""""""""""""""""""""""""
 
 " クリップボード関係=========================================
 " ヤンクをクリップボードへ送り込む
@@ -103,12 +106,12 @@ set clipboard+=unnamed,unnamedplus
 "編集中でもバッファを切り替えれるようにしておく
 set hidden
 "バッファ一覧ショートカット→バッファ番号で移動
-nmap gb :ls<CR>:buf 
+nmap gb :ls<CR>:buf
 
 
 " ステータスエリア関係
 "ステータスのところにファイル情報表示
-set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P 
+set statusline=%<[%n]%F%=\ %m%r%h%w%y%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}\ %l,%c\ %P
 
 "ルーラーを表示
 set ruler
@@ -142,38 +145,78 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " ビジュアルモード選択した部分を*で検索
 vnoremap * "zy:let @/ = @z<CR>n
 
+
+""""""""""""""""""""""""""""""
+" 挿入モード時、ステータスラインの色を変更
+""""""""""""""""""""""""""""""
+let g:hi_insert = 'highlight StatusLine guifg=darkblue guibg=darkyellow gui=none ctermfg=blue ctermbg=yellow cterm=none'
+
+if has('syntax')
+  augroup InsertHook
+    autocmd!
+    autocmd InsertEnter * call s:StatusLine('Enter')
+    autocmd InsertLeave * call s:StatusLine('Leave')
+  augroup END
+endif
+
+let s:slhlcmd = ''
+function! s:StatusLine(mode)
+  if a:mode == 'Enter'
+    silent! let s:slhlcmd = 'highlight ' . s:GetHighlight('StatusLine')
+    silent exec g:hi_insert
+  else
+    highlight clear StatusLine
+    silent exec s:slhlcmd
+  endif
+endfunction
+
+function! s:GetHighlight(hi)
+  redir => hl
+  exec 'highlight '.a:hi
+  redir END
+  let hl = substitute(hl, '[\r\n]', '', 'g')
+  let hl = substitute(hl, 'xxx', '', '')
+  return hl
+endfunction
+""""""""""""""""""""""""""""""
+
+
 " ############# NeoBundle ###############
 
 if has('vim_starting')
   set nocompatible               " Be iMproved
- 
+
   " Required:
   set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
- 
+
 " Required:
 call neobundle#begin(expand('~/.vim/bundle/'))
- 
+
 " Let NeoBundle manage NeoBundle
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
- 
+
 " My Bundles here:
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'bronson/vim-trailing-whitespace'
 " for markdown http://www.key-p.com/blog/staff/archives/9032
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
- 
+
 call neobundle#end()
- 
+
 " Required:
 filetype plugin indent on
- 
+
 " If there are uninstalled bundles found on startup,
 " this will conveniently prompt you to install them.
 NeoBundleCheck
@@ -183,7 +226,7 @@ NeoBundleCheck
 
 " 隠しファイルをデフォルトで表示させる
 let NERDTreeShowHidden = 1
- 
+
 " デフォルトでツリーを表示させる
 " autocmd VimEnter * execute 'NERDTree'
 
@@ -213,3 +256,15 @@ au FileType unite inoremap <silent> <buffer> <expr> <C-K> unite#do_action('vspli
 au FileType unite nnoremap <silent> <buffer> <ESC><ESC> :q<CR>
 au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 """"""""""""""""""""""""""""""
+
+" ########### fugitive.vim ##############
+" grep検索の実行後にQuickFix Listを表示する
+autocmd QuickFixCmdPost *grep* cwindow
+
+" ステータス行に現在のgitブランチを表示する
+set statusline+=%{fugitive#statusline()}
+
+
+" ########### vim-indent-guides ##############
+" vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
+let g:indent_guides_enable_on_vim_startup = 1
