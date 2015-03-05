@@ -10,7 +10,6 @@ set whichwrap=b,s,<,>,[,]
 map <F2> <ESC>:bp<CR>
 map <F3> <ESC>:bn<CR>
 
-
 " 検索を循環させない
 set nowrapscan
 
