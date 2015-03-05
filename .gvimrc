@@ -1,5 +1,6 @@
 " 色の設定===============
-colorscheme hybrid
+colorscheme evening
+"colorscheme hybrid
 
 " Windows動作環境との統合関連の設定
 " 開いたら全画面

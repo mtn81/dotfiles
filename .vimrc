@@ -1,9 +1,9 @@
 " ############# Base ###############
 
-"vi互換の動きにしない
+" vi互換の動きにしない
 set nocompatible
 
-"左右のカーソル移動で行間移動可能にする。
+" 左右のカーソル移動で行間移動可能にする。
 set whichwrap=b,s,<,>,[,]
 
 " バッファをキーで移動
@@ -52,6 +52,7 @@ set expandtab
 "標準タブは2
 set tabstop=2
 set softtabstop=2
+set shiftwidth=2
 
 "自動的にインデントする
 set autoindent
@@ -137,7 +138,9 @@ set wildmenu wildmode=list:longest,full
 set history=10000
 
 " 色の設定===============
-colorscheme hybrid
+colorscheme evening
+"colorscheme hybrid
+
 
 " markdown
 au BufRead,BufNewFile *.md set filetype=markdown
