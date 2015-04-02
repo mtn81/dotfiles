@@ -1,4 +1,4 @@
-" 
+:" 
 " ############# Base ###############
 
 " vi互換の動きにしない
@@ -137,10 +137,6 @@ set wildmenu wildmode=list:longest,full
 " コマンドラインの履歴を10000件保存する
 set history=10000
 
-" 色の設定===============
-colorscheme evening
-"colorscheme hybrid
-
 
 " markdown
 au BufRead,BufNewFile *.md set filetype=markdown
@@ -214,6 +210,18 @@ NeoBundle 'bronson/vim-trailing-whitespace'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'
 NeoBundle 'tyru/open-browser.vim'
+" color schemes
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'croaker/mustang-vim'
+NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'vim-scripts/twilight'
+NeoBundle 'jonathanfilip/vim-lucius'
+NeoBundle 'jpo/vim-railscasts-theme'
+NeoBundle 'vim-scripts/Wombat'
+NeoBundle 'vim-scripts/rdark'
 
 call neobundle#end()
 
@@ -271,3 +279,11 @@ set statusline+=%{fugitive#statusline()}
 " ########### vim-indent-guides ##############
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
+
+" 色の設定===============
+"colorscheme evening
+"colorscheme hybrid
+syntax enable
+set background=dark
+colorscheme solarized
+let g:solarized_termcolors=256
