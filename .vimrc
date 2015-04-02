@@ -280,10 +280,3 @@ set statusline+=%{fugitive#statusline()}
 " vimを立ち上げたときに、自動的にvim-indent-guidesをオンにする
 let g:indent_guides_enable_on_vim_startup = 1
 
-" 色の設定===============
-"colorscheme evening
-"colorscheme hybrid
-syntax enable
-set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
