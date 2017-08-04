@@ -1,4 +1,5 @@
 ln -f .vimrc ~/.vimrc
+ln -f .ideavimrc ~/.ideavimrc
 ln -f .vrapperrc ~/.vrapperrc
 ln -f .gvimrc ~/.gvimrc
 ln -f .gitignore_global ~/.gitignore_global
