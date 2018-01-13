@@ -1,5 +1,7 @@
 " ############# Base ###############
 
+set hlsearch
+
 " vi互換の動きにしない
 set nocompatible
 
@@ -205,6 +207,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'bronson/vim-trailing-whitespace'
+NeoBundle 'mattn/emmet-vim'
 " for markdown http://www.key-p.com/blog/staff/archives/9032
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'kannokanno/previm'

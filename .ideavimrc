@@ -127,4 +127,6 @@ au BufRead,BufNewFile *.md set filetype=markdown
 " ビジュアルモード選択した部分を*で検索
 vnoremap * "zy:let @/ = @z<CR>n
 
+set surround
+
 
