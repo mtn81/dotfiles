@@ -1,8 +1,8 @@
-ln -f .config/nvim ~/.config/nvim
-ln -f .vimrc ~/.vimrc
-ln -f .ideavimrc ~/.ideavimrc
-ln -f .vrapperrc ~/.vrapperrc
-ln -f .gvimrc ~/.gvimrc
-ln -f .gitignore_global ~/.gitignore_global
-ln -fs .dircolors-solarized ~/.dircolors-solarized
+ln -sf ~/dotfiles/.config/nvim ~/.config/nvim
+ln -sf ~/dotfiles/.vimrc ~/.vimrc
+ln -sf ~/dotfiles/.ideavimrc ~/.ideavimrc
+ln -sf ~/dotfiles/.vrapperrc ~/.vrapperrc
+ln -sf ~/dotfiles/.gvimrc ~/.gvimrc
+ln -sf ~/dotfiles/.gitignore_global ~/.gitignore_global
+ln -sf ~/dotfiles/.dircolors-solarized ~/.dircolors-solarized
 
