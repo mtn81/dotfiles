@@ -1,3 +1,4 @@
+ln -f .config/nvim ~/.config/nvim
 ln -f .vimrc ~/.vimrc
 ln -f .ideavimrc ~/.ideavimrc
 ln -f .vrapperrc ~/.vrapperrc
