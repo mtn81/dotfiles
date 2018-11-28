@@ -1,0 +1,14 @@
+{
+    "workbench.colorTheme": "BlueForest",
+    "editor.snippetSuggestions": "top",
+    "editor.tabCompletion": true,
+
+    "vim.useSystemClipboard": true,
+    "vim.hlsearch": true,
+    "vim.visualstar": true,
+    "vim.easymotion": true,
+    "vim.leader": "<space>",
+    "vim.enableNeovim": true,
+    "window.zoomLevel": 0,
+
+}

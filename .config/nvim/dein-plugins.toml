@@ -72,3 +72,10 @@ repo = 'vim-scripts/Wombat'
 
 [[plugins]]
 repo = 'vim-scripts/rdark'
+
+[[plugins]]
+repo = 'rust-lang/rust.vim'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
