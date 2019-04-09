@@ -9,6 +9,7 @@
     "vim.easymotion": true,
     "vim.leader": "<space>",
     "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/local/bin/nvim",
     "window.zoomLevel": 0,
 
 }
