@@ -275,7 +275,7 @@ au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>:q<CR>
 autocmd QuickFixCmdPost *grep* cwindow
 
 " ステータス行に現在のgitブランチを表示する
-set statusline+=%{fugitive#statusline()}
+" set statusline+=%{fugitive#statusline()}
 
 
 " ########### vim-indent-guides ##############
