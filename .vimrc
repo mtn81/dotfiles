@@ -45,7 +45,7 @@ nnoremap dd "_dd
 set list
 
 " タブとか改行を示す文字列 eol(改行)は背景色違いのスペースにする。
-set listchars=tab:>-,extends:<,trail:-,eol:\
+" set listchars=tab:>-,extends:<,trail:-,eol:\
 
 "タブを空白で入力する
 set expandtab

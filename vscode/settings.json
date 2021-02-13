@@ -2,7 +2,6 @@
     "workbench.colorTheme": "BlueForest",
     "editor.snippetSuggestions": "top",
     "editor.tabCompletion": true,
-
     "vim.useSystemClipboard": true,
     "vim.hlsearch": true,
     "vim.visualstar": true,
@@ -10,6 +9,45 @@
     "vim.leader": "<space>",
     "vim.enableNeovim": true,
     "vim.neovimPath": "/usr/local/bin/nvim",
-    "window.zoomLevel": 0,
-
+    "window.zoomLevel": 1,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.rulers": [
+            80
+        ],
+        "editor.selectionHighlight": false,
+        "editor.suggest.snippetsPreventQuickSuggestions": false,
+        "editor.suggestSelection": "first",
+        "editor.tabCompletion": "onlySnippets",
+        "editor.wordBasedSuggestions": false,
+        "files.insertFinalNewline": true
+    },
+    "purescript.addSpagoSources": true,
+    "purescript.addNpmPath": true,
+    "purescript.buildCommand": "spago build --purs-args --json-errors",
+    "git.confirmSync": false,
+    "dart.debugExternalLibraries": true,
+    "dart.debugSdkLibraries": false,
+    "gitlens.gitCommands.skipConfirmations": [
+        "fetch:command",
+        "stash-push:command",
+        "switch:command",
+        "push:menu"
+    ],
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "files.watcherExclude": {
+        "**/.bloop": true,
+        "**/.metals": true,
+        "**/.ammonite": true
+    },
+    "dotty.trace.machineId": "d802e9a7-2108-49c0-b211-fb8f2f2c3eac"
 }
