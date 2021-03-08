@@ -9,3 +9,5 @@ ln -sf ~/dotfiles/.dircolors-solarized ~/.dircolors-solarized
 # ln -sf ~/dotfiles/vscode/keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
 ln -sf ~/dotfiles/.git-completion.bash ~/.git-completion.bash
 ln -sf ~/dotfiles/.git-prompt.sh ~/.git-prompt.sh
+# ln -sf ~/dotfiles/.bashrc ~/.bashrc
+# ln -sf ~/dotfiles/.bash_profile ~/.bash_profile
