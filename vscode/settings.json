@@ -49,5 +49,18 @@
         "**/.metals": true,
         "**/.ammonite": true
     },
-    "dotty.trace.machineId": "d802e9a7-2108-49c0-b211-fb8f2f2c3eac"
+    "editor.minimap.enabled": false, // ミニマップを非表示にする
+    "editor.renderControlCharacters": true, // 制御文字を表示する
+    "editor.suggestSelection": "first", // サジェスト一覧の初期表示項目設定
+    "breadcrumbs.enabled": true, // ファイルのパンくずリストを表示する
+    "files.insertFinalNewline": true, // ファイルの末尾を改行で終わらせる
+    // "editor.fontFamily": "'Fira Code', Hasklig, Consolas, 'Courier New', monospace",
+    // "editor.fontLigatures": true, // 合字を有効化
+    "editor.fontSize": 15, // フォントサイズを変更
+    "editor.renderLineHighlight": "all", // 選択行の行番号をハイライトする
+    "editor.cursorBlinking": "smooth", // カーソルが滑らかに点滅するように
+    "editor.cursorSmoothCaretAnimation": true, // カーソルの点滅をアニメーション表示する
+    // "editor.cursorStyle": "block", // カーソルの外観をブロックに変更
+    "files.autoGuessEncoding": true, // ファイルの自動エンコードを実施
+    "editor.bracketPairColorization.enabled": true // 括弧の対応を色付ける
 }
